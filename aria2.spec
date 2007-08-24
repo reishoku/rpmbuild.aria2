@@ -1,9 +1,9 @@
 Name:           aria2
-Version:        0.11.1
+Version:        0.11.2
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
-License:        GPL
+License:        GPLv2
 URL:            http://aria2.sourceforge.net/
 Source0:        http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -64,6 +64,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Aug 24 2007 Michał Bentkowski <mr.ecik at gmail.com> - 0.11.2-1
+- 0.11.2
+- Fix License tag
+
 * Mon Jul 09 2007 Michał Bentkowski <mr.ecik at gmail.com> - 0.11.1-1
 - Update to 0.11.1
 
