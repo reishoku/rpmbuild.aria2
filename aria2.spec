@@ -1,6 +1,6 @@
 Name:           aria2
-Version:        0.11.3
-Release:        1%{?dist}
+Version:        0.12.0
+Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2
@@ -51,6 +51,7 @@ make %{?_smp_mflags}
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 %find_lang aria2c
+rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -63,7 +64,14 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 
+
 %changelog
+* Mon Dec 31 2007 Michał Bentkowski <mr.ecik at gmail.com> - 0.12.0-2
+- Get rid of odd locale.alias
+
+* Mon Dec 31 2007 Michał Bentkowski <mr.ecik at gmail.com> - 0.12.0-1
+- 0.12.0
+
 * Thu Sep 20 2007 Michał Bentkowski <mr.ecik at gmail.com> - 0.11.3-1
 - 0.11.3
 
