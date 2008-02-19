@@ -1,6 +1,6 @@
 Name:           aria2
 Version:        0.12.0
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Feb 18 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 0.12.0-3
+- Autorebuild for GCC 4.3
+
 * Mon Dec 31 2007 Michał Bentkowski <mr.ecik at gmail.com> - 0.12.0-2
 - Get rid of odd locale.alias
 
