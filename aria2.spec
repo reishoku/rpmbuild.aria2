@@ -6,6 +6,7 @@ Group:          Applications/Internet
 License:        GPLv2
 URL:            http://aria2.sourceforge.net/
 Source0:        http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
+Patch0:         aria2-0.12.0-gcc43.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
@@ -34,7 +35,7 @@ Currently it has following features:
 
 %prep
 %setup -q
-
+%patch0
 
 %build
 %configure --enable-bittorrent \
@@ -66,6 +67,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Fri Feb 22 2008 Michał Bentkowski <mr.ecik at gmail.com> - 0.12.0-4
+- Add patch
+
 * Mon Feb 18 2008 Fedora Release Engineering <rel-eng@fedoraproject.org> - 0.12.0-3
 - Autorebuild for GCC 4.3
 
