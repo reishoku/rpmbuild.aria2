@@ -1,6 +1,6 @@
 Name:           aria2
 Version:        0.12.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2
