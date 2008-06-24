@@ -1,6 +1,6 @@
 Name:           aria2
 Version:        0.12.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2
@@ -67,6 +67,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Tue Jun 24 2008 Tomas Mraz <tmraz@redhat.com> - 0.12.0-5
+- rebuild with new gnutls
+
 * Fri Feb 22 2008 Michał Bentkowski <mr.ecik at gmail.com> - 0.12.0-4
 - Add patch
 
