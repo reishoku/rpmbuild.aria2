@@ -1,17 +1,19 @@
+%define binname aria2c
+
 Name:           aria2
-Version:        0.12.0
-Release:        5%{?dist}
+Version:        1.0.1
+Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2
 URL:            http://aria2.sourceforge.net/
-Source0:        http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-Patch0:         aria2-0.12.0-gcc43.patch
+Source0:        http://downloads.sourceforge.net/%{binname}/%{binname}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
 BuildRequires:  libgcrypt-devel libxml2-devel
+BuildRequires:  sqlite-devel
 
 %description
 aria2 is a download utility with resuming and segmented downloading.
@@ -34,16 +36,21 @@ Currently it has following features:
 - Limiting download/upload speed
 
 %prep
-%setup -q
-%patch0
+%setup -q -n %{binname}-%{version}
 
 %build
 %configure --enable-bittorrent \
            --enable-metalink \
+           --enable-epoll\
            --disable-rpath \
            --with-gnutls \
            --with-libcares \
-           --with-libxml2
+           --with-libxml2 \
+           --with-openssl \
+           --with-libz \
+           --with-sqlite3 \
+           --disable-dependency-tracking \
+
 
 make %{?_smp_mflags}
 
@@ -53,6 +60,7 @@ rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 %find_lang aria2c
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
+rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{binname}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -60,13 +68,17 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f aria2c.lang
 %defattr(-,root,root,-)
-%doc AUTHORS ChangeLog COPYING README TODO
-%{_bindir}/aria2c
+%doc AUTHORS ChangeLog COPYING README doc/aria2c.1.html
+%{_bindir}/%{binname}
 %{_mandir}/man*/*
 
 
 
 %changelog
+* Fri Dec 05 2008 Michał Bentkowski <mr.ecik at gmail.com> - 1.0.1-2
+- New version, 1.0.1
+- Forgot to add changelog in last release...
+
 * Tue Jun 24 2008 Tomas Mraz <tmraz@redhat.com> - 0.12.0-5
 - rebuild with new gnutls
 
