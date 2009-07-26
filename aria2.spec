@@ -1,11 +1,11 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.5.0
+Version:        1.5.1
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
-License:        GPLv2
+License:        GPLv2+ with exceptions
 URL:            http://aria2.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -73,6 +73,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Mon Jul 26 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.1-1
+- Minor bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1494
+- Fixed the license tag
+
 * Sun Jul 26 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.0-1
 - Mostly minor bug fixes 
 - WEB-Seeding support for multi-file torrent
