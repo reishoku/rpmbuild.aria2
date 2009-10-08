@@ -1,8 +1,8 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.0.1
-Release:        2%{?dist}
+Version:        1.3.1
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2
@@ -75,6 +75,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Oct 08 2008 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.1
+- Update to the same version as Fedora 11 that fixes rhbz#527827 
+
 * Fri Dec 05 2008 Michał Bentkowski <mr.ecik at gmail.com> - 1.0.1-2
 - New version, 1.0.1
 - Forgot to add changelog in last release...
