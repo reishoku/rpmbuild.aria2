@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.6.0
+Version:        1.6.1
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -73,6 +73,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.1-1
+- Fixes memory leak in HTTP/FTP downloads and other minor bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1569
+
 * Wed Sep 23 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.0-1
 - Minor bug fixes
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1544
