@@ -60,6 +60,8 @@ rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 %find_lang %{name}
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
+
+
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
 %clean
@@ -75,10 +77,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.2
+* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.1-2
 - Fix spec. Dumb mistake
 
-* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.1
+* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.1-1
 - Update to the same version as Fedora 11 that fixes rhbz#52782
 
 * Fri Dec 05 2008 Michał Bentkowski <mr.ecik at gmail.com> - 1.0.1-2
