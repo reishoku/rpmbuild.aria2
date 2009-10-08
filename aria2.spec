@@ -2,12 +2,12 @@
 
 Name:           aria2
 Version:        1.3.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2
 URL:            http://aria2.sourceforge.net/
-Source0:        http://downloads.sourceforge.net/%{binname}/%{binname}-%{version}.tar.bz2
+Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
@@ -36,7 +36,7 @@ Currently it has following features:
 - Limiting download/upload speed
 
 %prep
-%setup -q -n %{binname}-%{version}
+%setup -q
 
 %build
 %configure --enable-bittorrent \
@@ -58,15 +58,15 @@ make %{?_smp_mflags}
 %install
 rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
-%find_lang aria2c
+%find_lang %{name}
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
-rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{binname}
+rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 
-%files -f aria2c.lang
+%files -f %{name}.lang
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING README doc/aria2c.1.html
 %{_bindir}/%{binname}
@@ -75,8 +75,11 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.2
+- Fix spec. Dumb mistake
+
 * Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.1
-- Update to the same version as Fedora 11 that fixes rhbz#527827 
+- Update to the same version as Fedora 11 that fixes rhbz#52782
 
 * Fri Dec 05 2008 Michał Bentkowski <mr.ecik at gmail.com> - 1.0.1-2
 - New version, 1.0.1
