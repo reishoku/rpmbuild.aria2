@@ -75,7 +75,7 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Thu Oct 08 2008 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.1
+* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.3.1
 - Update to the same version as Fedora 11 that fixes rhbz#527827 
 
 * Fri Dec 05 2008 Michał Bentkowski <mr.ecik at gmail.com> - 1.0.1-2
