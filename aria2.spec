@@ -1,14 +1,13 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.6.1
+Version:        1.6.2
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.sourceforge.net/
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -56,7 +55,6 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 %find_lang %{name}
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
@@ -73,6 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Sat Oct 10 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.2-1
+- Minor bug fixes and switch XZ compressed source 
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1586
+
 * Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.1-1
 - Fixes memory leak in HTTP/FTP downloads and other minor bug fixes
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1569
