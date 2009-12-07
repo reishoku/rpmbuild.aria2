@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.6.3
+Version:        1.7.1
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -71,6 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Mon Dec 07 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.7.1-1
+- Option --bt-prioritize-piece=tail will work again
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1721
+
 * Wed Nov 04 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.3-1
 - Minor bug fixes
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1616
