@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.7.1
+Version:        1.8.0
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -27,7 +27,7 @@ Currently it has following features:
 - FTP support(active, passive mode)
 - FTP through HTTP proxy(GET command or tunneling)
 - Segmented download
-- Cookie support(currently aria2 ignores "expires")
+- Cookie support
 - It can run as a daemon process.
 - BitTorrent protocol support with fast extension.
 - Selective download in multi-file torrent
@@ -71,6 +71,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Mon Dec 28 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.8.0-1
+- Many new features including XML RPC improvements and other bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1778
+ 
 * Mon Dec 07 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.7.1-1
 - Option --bt-prioritize-piece=tail will work again
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1721
