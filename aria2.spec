@@ -1,14 +1,13 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.3.1
+Version:        1.9.3
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
-License:        GPLv2
+License:        GPLv2+ with exceptions
 URL:            http://aria2.sourceforge.net/
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -28,7 +27,7 @@ Currently it has following features:
 - FTP support(active, passive mode)
 - FTP through HTTP proxy(GET command or tunneling)
 - Segmented download
-- Cookie support(currently aria2 ignores "expires")
+- Cookie support
 - It can run as a daemon process.
 - BitTorrent protocol support with fast extension.
 - Selective download in multi-file torrent
@@ -56,7 +55,6 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 make install DESTDIR=$RPM_BUILD_ROOT
 %find_lang %{name}
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
@@ -72,9 +70,62 @@ rm -rf $RPM_BUILD_ROOT
 %{_bindir}/%{binname}
 %{_mandir}/man*/*
 
-
-
 %changelog
+* Thu May 20 2010 Rahul Sundaram <sundaram@fedoraproject.org> - 1.9.3-1
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=2101 
+- Fixes CVE-2010-1512. rhbz # 592014
+
+* Sat Mar 20 2010 Rahul Sundaram <sundaram@fedoraproject.org> - 1.9.0-1
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1990 
+
+* Tue Feb 16 2010 Rahul Sundaram <sundaram@fedoraproject.org> - 1.8.2-1
+- Several bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1860
+
+* Mon Dec 28 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.8.0-1
+- Many new features including XML RPC improvements and other bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1778
+ 
+* Mon Dec 07 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.7.1-1
+- Option --bt-prioritize-piece=tail will work again
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1721
+
+* Wed Nov 04 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.3-1
+- Minor bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1616
+
+* Sat Oct 10 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.2-1
+- Minor bug fixes and switch XZ compressed source 
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1586
+
+* Thu Oct 08 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.1-1
+- Fixes memory leak in HTTP/FTP downloads and other minor bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1569
+
+* Wed Sep 23 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.6.0-1
+- Minor bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1544
+
+* Mon Aug 24 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.2-1
+- Minor bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1504
+
+* Mon Jul 26 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.1-2
+- update source
+
+* Mon Jul 26 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.1-1
+- Minor bug fixes
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1494
+- Fixed the license tag
+
+* Sun Jul 26 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.0-1
+- Mostly minor bug fixes 
+- WEB-Seeding support for multi-file torrent
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1476
+
+* Fri Jul 24 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.3.1-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
+
 * Tue Apr 14 2009 Robert Scheck <robert@fedoraproject.org> - 1.3.1-1
 - Upgrade to 1.3.1
 
