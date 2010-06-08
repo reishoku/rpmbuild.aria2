@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.9.0
+Version:        1.9.4
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -71,6 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Tue Jun 08 2010 Rahul Sundaram <sundaram@fedoraproject.org> - 1.9.4-1
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=2133
+
 * Sat Mar 20 2010 Rahul Sundaram <sundaram@fedoraproject.org> - 1.9.0-1
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1990 
 
