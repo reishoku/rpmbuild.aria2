@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.9.4
+Version:        1.10.0
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -60,10 +60,6 @@ make install DESTDIR=$RPM_BUILD_ROOT
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
-
 %files -f %{name}.lang
 %defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING README doc/aria2c.1.html
@@ -71,6 +67,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man*/*
 
 %changelog
+* Fri Jul 30 2010 Rahul Sundaram <sundaram@fedoraproject.org> - 1.10.0-1
+- http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=2279
+- Dropped clean section
+
 * Tue Jun 08 2010 Rahul Sundaram <sundaram@fedoraproject.org> - 1.9.4-1
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=2133
 
