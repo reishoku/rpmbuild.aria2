@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.11.1
+Version:        1.11.2
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -59,12 +59,15 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
 %files -f %{name}.lang
-%defattr(-,root,root,-)
 %doc AUTHORS ChangeLog COPYING README doc/aria2c.1.html
 %{_bindir}/%{binname}
 %{_mandir}/man*/*
 
 %changelog
+* Sun May 22 2011 Rahul Sundaram <sundaram@fedoraproject.org> - 1.11.2-1
+- https://github.com/tatsuhiro-t/aria2/commit/f6625f8dc5557e77fcace9bedaf1815c5eaf763f#NEWS
+- Drop defattr since it is set by default in recent rpm
+
 * Sun Apr 10 2011 Rahul Sundaram <sundaram@fedoraproject.org> - 1.11.1-1
 - https://github.com/tatsuhiro-t/aria2/blob/8d8fb31a45f66a29c78911293a60a00ac4903795/NEWS
 
