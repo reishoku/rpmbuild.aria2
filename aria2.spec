@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.11.2
+Version:        1.12.1
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -13,6 +13,8 @@ BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
 BuildRequires:  libgcrypt-devel libxml2-devel
 BuildRequires:  sqlite-devel
+BuildRequires:  gettext
+
 %description
 aria2 is a download utility with resuming and segmented downloading.
 Supported protocols are HTTP/HTTPS/FTP/BitTorrent. It also supports Metalink
@@ -61,9 +63,14 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog COPYING README doc/aria2c.1.html
 %{_bindir}/%{binname}
-%{_mandir}/man*/*
+%{_mandir}/man1/aria2c.1.gz
+%{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Mon Aug 15 2011 Rahul Sundaram <sundaram@fedoraproject.org> - 1.12.1-1
+- https://github.com/tatsuhiro-t/aria2/commit/bd3956293995bcbbb76e6c8686b4ac8dfd3c9ed4#NEWS
+- Additional man page
+
 * Sun May 22 2011 Rahul Sundaram <sundaram@fedoraproject.org> - 1.11.2-1
 - https://github.com/tatsuhiro-t/aria2/commit/f6625f8dc5557e77fcace9bedaf1815c5eaf763f#NEWS
 - Drop defattr since it is set by default in recent rpm
