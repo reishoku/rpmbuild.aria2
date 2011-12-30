@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.12.1
+Version:        1.14.0
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -67,6 +67,10 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Fri Dec 30 2011 Rahul Sundaram <sundaram@fedoraproject.org> - 1.14.0-1
+- update to 1.14.0
+- https://github.com/tatsuhiro-t/aria2/blob/3dc6d2ff6df5a33f6abf47b4e792ea7dd578cf9a/NEWS
+
 * Mon Aug 15 2011 Rahul Sundaram <sundaram@fedoraproject.org> - 1.12.1-1
 - https://github.com/tatsuhiro-t/aria2/commit/bd3956293995bcbbb76e6c8686b4ac8dfd3c9ed4#NEWS
 - Additional man page
