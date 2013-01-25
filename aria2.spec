@@ -1,14 +1,13 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.14.2
-Release:        2%{?dist}
+Version:        1.16.1
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
-Patch0:         aria2-1.14.2-gcc47.patch
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -38,7 +37,6 @@ Currently it has following features:
 
 %prep
 %setup -q
-%patch0 -p1 -b .gcc47
 
 %build
 %configure --enable-bittorrent \
@@ -63,12 +61,15 @@ rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
 %files -f %{name}.lang
-%doc AUTHORS ChangeLog COPYING README doc/aria2c.1.html
+%doc AUTHORS ChangeLog COPYING README 
 %{_bindir}/%{binname}
 %{_mandir}/man1/aria2c.1.gz
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Fri Jan 25 2013 Rahul Sundaram <sundaram@fedoraproject.org> - 1.16.1-1
+- upstream release 1.16.1
+
 * Wed Jul 18 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.14.2-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_18_Mass_Rebuild
 
