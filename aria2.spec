@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.16.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
@@ -67,6 +67,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Wed Mar  6 2013 Rahul Sundaram <sundaram@fedoraproject.org> - 1.16.1-2
+- rebuilt with new gnutls
+
 * Fri Jan 25 2013 Rahul Sundaram <sundaram@fedoraproject.org> - 1.16.1-1
 - upstream release 1.16.1
 
