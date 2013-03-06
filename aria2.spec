@@ -8,6 +8,7 @@ Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
+Patch1:         aria-1.16.1-build.patch
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -37,6 +38,7 @@ Currently it has following features:
 
 %prep
 %setup -q
+%patch1 -p 1 -b .build
 
 %build
 %configure --enable-bittorrent \
@@ -155,10 +157,10 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 - Minor bug fixes
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1504
 
-* Mon Jul 26 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.1-2
+* Mon Jul 27 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.1-2
 - update source
 
-* Mon Jul 26 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.1-1
+* Mon Jul 27 2009 Rahul Sundaram <sundaram@fedoraproject.org> - 1.5.1-1
 - Minor bug fixes
 - http://aria2.svn.sourceforge.net/viewvc/aria2/trunk/NEWS?revision=1494
 - Fixed the license tag
