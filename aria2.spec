@@ -67,7 +67,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
-* Wed Mar  6 2013 Rahul Sundaram <sundaram@fedoraproject.org> - 1.16.1-2
+* Wed Mar  6 2013 Tomáš Mráz <tmraz@redhat.com> - 1.16.1-2
 - rebuilt with new gnutls
 
 * Fri Jan 25 2013 Rahul Sundaram <sundaram@fedoraproject.org> - 1.16.1-1
