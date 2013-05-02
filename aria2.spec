@@ -1,14 +1,13 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.16.1
-Release:        2%{?dist}
+Version:        1.17.0
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
-Patch1:         aria2-1.16.1-build.patch
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -38,7 +37,6 @@ Currently it has following features:
 
 %prep
 %setup -q
-%patch1 -p 1 -b .build
 
 %build
 %configure --enable-bittorrent \
@@ -53,11 +51,10 @@ Currently it has following features:
            --with-sqlite3 \
 
 
-make %{?_smp_mflags}
-
+V=1 make %{?_smp_mflags}
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 %find_lang %{name}
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
@@ -69,6 +66,12 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Thu May 02 2013 Rahul Sundaram <sundaram@fedoraproject.org> - 1.17.0-1
+- update to 1.17.0
+- drop upstream build patch
+- switch to verbose make
+- switch to make_install macro
+
 * Wed Mar  6 2013 Tomáš Mráz <tmraz@redhat.com> - 1.16.1-2
 - rebuilt with new gnutls
 
