@@ -2,12 +2,13 @@
 
 Name:           aria2
 Version:        1.18.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
+Patch0:         aria2-1.18.10-use-system-wide-crypto-policies.patch  
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -37,6 +38,7 @@ Currently it has following features:
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure --enable-bittorrent \
@@ -66,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Fri Feb 27 2015 Athmane Madjoudj <athmane@fedoraproject.org> 1.18.10-2
+- Add a patch to use system-wide crypto-policies (RHBZ #1179277)
+
 * Fri Feb 27 2015 Athmane Madjoudj <athmane@fedoraproject.org> 1.18.10-1
 - Update to 1.18.10 (RHBZ #1123979)
 
