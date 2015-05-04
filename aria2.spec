@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.18.10
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
@@ -68,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Mon May 04 2015 Kalev Lember <kalevlember@gmail.com> - 1.18.10-4
+- Rebuilt for nettle soname bump
+
 * Sat May 02 2015 Kalev Lember <kalevlember@gmail.com> - 1.18.10-3
 - Rebuilt for GCC 5 C++11 ABI change
 
