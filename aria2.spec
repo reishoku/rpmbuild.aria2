@@ -1,8 +1,8 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.18.10
-Release:        4%{?dist}
+Version:        1.19.0
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
@@ -68,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Sun May 24 2015 Athmane Madjoudj <athmane@fedoraproject.org> 1.19.0-1
+- Update to 1.19.0
+
 * Mon May 04 2015 Kalev Lember <kalevlember@gmail.com> - 1.18.10-4
 - Rebuilt for nettle soname bump
 
