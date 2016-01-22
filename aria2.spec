@@ -1,14 +1,14 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.19.0
-Release:        2%{?dist}
+Version:        1.19.3
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
-URL:            http://aria2.sourceforge.net/
-Source0:        http://downloads.sourceforge.net/%{name}/%{name}-%{version}.tar.xz
-Patch0:         aria2-1.18.10-use-system-wide-crypto-policies.patch  
+URL:            http://aria2.github.io/
+Source0:        https://github.com/tatsuhiro-t/%{name}/releases/download/release-%{version}/%{name}-%{version}.tar.xz
+Patch0:         aria2-1.19.3-use-system-wide-crypto-policies.patch
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -68,6 +68,11 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Fri Jan 22 2016 Athmane Madjoudj <athmane@fedoraproject.org> 1.19.3-1
+- Update to 1.19.3
+- Fix Source and URL since upsteam moved to Github
+- Rebase Use system wide crypto policies patch
+
 * Wed Jun 17 2015 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 1.19.0-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_23_Mass_Rebuild
 
