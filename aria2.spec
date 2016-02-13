@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.19.3
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
@@ -41,7 +41,8 @@ Currently it has following features:
 %patch0 -p1
 
 %build
-%configure --enable-bittorrent \
+%configure CXX="g++ -std=c++0x" \
+            --enable-bittorrent \
            --enable-metalink \
            --enable-epoll\
            --disable-rpath \
@@ -68,6 +69,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Sat Feb 13 2016 Athmane Madjoudj <athmane@fedoraproject.org> 1.19.3-3
+- Fix build issue with GCC 6.0 (RHBZ #1307327)
+
 * Wed Feb 03 2016 Fedora Release Engineering <releng@fedoraproject.org> - 1.19.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
