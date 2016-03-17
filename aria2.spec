@@ -1,15 +1,13 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.20.0
+Version:        1.21.0
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
 Source0:        https://github.com/tatsuhiro-t/%{name}/releases/download/release-%{version}/%{name}-%{version}.tar.xz
-# Github PR  #573
-Patch0:         0001-Add-support-for-using-gnutls-system-wide-crypto-poli.patch
 BuildRequires:  bison
 BuildRequires:  c-ares-devel cppunit-devel
 BuildRequires:  gettext gnutls-devel
@@ -17,7 +15,7 @@ BuildRequires:  libgcrypt-devel libxml2-devel
 BuildRequires:  sqlite-devel
 BuildRequires:  gettext
 # INFO: temp. workaround will be removed once merged
-BuildRequires:  autoconf gettext-devel automake libtool
+#BuildRequires:  autoconf gettext-devel automake libtool
 
 
 %description
@@ -42,10 +40,8 @@ Currently it has following features:
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
-autoreconf -i
 %configure CXX="g++ -std=c++11" \
            --enable-bittorrent \
            --enable-metalink \
@@ -75,6 +71,10 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Thu Mar 17 2016 Athmane Madjoudj <athmane@fedoraproject.org> 1.21.0-1
+- Update to 1.21.0
+- Remove upstreamed patch
+
 * Tue Feb 16 2016 Athmane Madjoudj <athmane@fedoraproject.org> 1.20.0-1
 - Update to 1.20.0
 - Rebase Use system wide crypto policies patch
