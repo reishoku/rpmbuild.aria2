@@ -1,7 +1,7 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.24.0
+Version:        1.25.0
 Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
@@ -14,8 +14,6 @@ BuildRequires:  gettext gnutls-devel
 BuildRequires:  libgcrypt-devel libxml2-devel
 BuildRequires:  sqlite-devel
 BuildRequires:  gettext
-# INFO: temp. workaround will be removed once merged
-#BuildRequires:  autoconf gettext-devel automake libtool
 
 
 %description
@@ -64,6 +62,10 @@ V=1 make %{?_smp_mflags}
 rm -f $RPM_BUILD_ROOT%{_datadir}/locale/locale.alias
 rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
+%check
+# fails atm
+#make check
+
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog COPYING README 
 %{_bindir}/%{binname}
@@ -71,6 +73,10 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Thu Jul 21 2016 Athmane Madjoudj <athmane@fedoraproject.org> - 1.25.0-1
+- Update to 1.25.0
+- Enable testsuite exec
+
 * Sat Jun 25 2016 Athmane Madjoudj <athmane@fedoraproject.org> - 1.24.0-1
 - Update to 1.24.0
 
