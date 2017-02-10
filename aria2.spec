@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.31.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Fri Feb 10 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.31.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Sun Jan 22 2017 Athmane Madjoudj <athmane@fedoraproject.org> - 1.31.0-1
 - Update to 1.31.0
 
