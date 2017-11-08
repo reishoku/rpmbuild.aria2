@@ -1,8 +1,8 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.32.0
-Release:        3%{?dist}
+Version:        1.33.0
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
@@ -73,6 +73,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Wed Nov 08 2017 Athmane Madjoudj <athmane@fedoraproject.org> - 1.33.0-1
+- Update to 1.33.0 (rhbz #1510674)
+
 * Wed Aug 02 2017 Fedora Release Engineering <releng@fedoraproject.org> - 1.32.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Binutils_Mass_Rebuild
 
