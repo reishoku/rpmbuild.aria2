@@ -2,19 +2,23 @@
 
 Name:           aria2
 Version:        1.33.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
 Source0:        https://github.com/tatsuhiro-t/%{name}/releases/download/release-%{version}/%{name}-%{version}.tar.xz
-BuildRequires:  bison
-BuildRequires:  c-ares-devel cppunit-devel
-BuildRequires:  gettext gnutls-devel
-BuildRequires:  libgcrypt-devel libxml2-devel
-BuildRequires:  sqlite-devel
-BuildRequires:  gettext
 
+BuildRequires:  bison
+BuildRequires:  c-ares-devel
+BuildRequires:  cppunit-devel
+BuildRequires:  gcc-c++
+BuildRequires:  gettext
+BuildRequires:  gnutls-devel
+BuildRequires:  libgcrypt-devel
+BuildRequires:  libxml2-devel
+BuildRequires:  make
+BuildRequires:  sqlite-devel
 
 %description
 aria2 is a download utility with resuming and segmented downloading.
@@ -73,6 +77,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Sun Feb 18 2018 Athmane Madjoudj <athmane@fedoraproject.org> - 1.33.1-3
+- Refactor BRs
+
 * Wed Feb 07 2018 Fedora Release Engineering <releng@fedoraproject.org> - 1.33.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
 
