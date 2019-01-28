@@ -4,7 +4,6 @@ Name:           aria2
 Version:        1.34.0
 Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
-Group:          Applications/Internet
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
 Source0:        https://github.com/tatsuhiro-t/%{name}/releases/download/release-%{version}/%{name}-%{version}.tar.xz
