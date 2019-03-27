@@ -2,11 +2,12 @@
 
 Name:           aria2
 Version:        1.34.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
 Source0:        https://github.com/tatsuhiro-t/%{name}/releases/download/release-%{version}/%{name}-%{version}.tar.xz
+Patch0:         mask-headers-37368130ca7.patch
 
 BuildRequires:  bison
 BuildRequires:  c-ares-devel
@@ -18,6 +19,7 @@ BuildRequires:  libgcrypt-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  make
 BuildRequires:  sqlite-devel
+BuildRequires:  git-core
 
 %description
 aria2 is a download utility with resuming and segmented downloading.
@@ -40,7 +42,7 @@ Currently it has following features:
 - Limiting download/upload speed
 
 %prep
-%setup -q
+%autosetup -S git
 
 %build
 %configure CXX="g++ -std=c++11" \
@@ -76,6 +78,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Wed Mar 27 2019 Athmane Madjoudj <athmane@fedoraproject.org> - 1.34.0-4
+- Fix Password leak for HTTP based authentication CVE-2019-3500 (rhbz #1663991 #1663992 #1663993)
+
 * Thu Jan 31 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.34.0-3
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_30_Mass_Rebuild
 
