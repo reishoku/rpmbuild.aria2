@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.34.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
@@ -56,7 +56,9 @@ Currently it has following features:
            --without-openssl \
            --with-libz \
            --with-sqlite3 \
+%if 0%{?fedora}
            --enable-gnutls-system-crypto-policy \
+%endif
 
 
 V=1 make %{?_smp_mflags}
@@ -78,6 +80,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Mon Apr 29 2019 Athmane Madjoudj <athmane@fedoraproject.org> - 1.34.0-5
+- Enable gnutls-system-crypto-policy only in Fedora (rhbz #1704413)
+
 * Wed Mar 27 2019 Athmane Madjoudj <athmane@fedoraproject.org> - 1.34.0-4
 - Fix Password leak for HTTP based authentication CVE-2019-3500 (rhbz #1663991 #1663992 #1663993)
 
