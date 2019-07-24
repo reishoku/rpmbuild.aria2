@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.34.0
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
@@ -80,6 +80,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.34.0-6
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
+
 * Mon Apr 29 2019 Athmane Madjoudj <athmane@fedoraproject.org> - 1.34.0-5
 - Enable gnutls-system-crypto-policy only in Fedora (rhbz #1704413)
 
