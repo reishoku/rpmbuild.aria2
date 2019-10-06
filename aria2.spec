@@ -1,13 +1,12 @@
 %define binname aria2c
 
 Name:           aria2
-Version:        1.34.0
-Release:        6%{?dist}
+Version:        1.35.0
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
 Source0:        https://github.com/tatsuhiro-t/%{name}/releases/download/release-%{version}/%{name}-%{version}.tar.xz
-Patch0:         mask-headers-37368130ca7.patch
 
 BuildRequires:  bison
 BuildRequires:  c-ares-devel
@@ -80,6 +79,10 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Sun Oct 06 2019 Othman Madjoudj <athmane@fedoraproject.org> - 1.35.0-1
+- Update to 1.35.0 (rhbz #1758829)
+- Drop the backport patches
+
 * Wed Jul 24 2019 Fedora Release Engineering <releng@fedoraproject.org> - 1.34.0-6
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 
