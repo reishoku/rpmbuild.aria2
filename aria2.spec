@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.35.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
@@ -79,6 +79,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Tue Jan 28 2020 Fedora Release Engineering <releng@fedoraproject.org> - 1.35.0-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Sun Oct 06 2019 Othman Madjoudj <athmane@fedoraproject.org> - 1.35.0-1
 - Update to 1.35.0 (rhbz #1758829)
 - Drop the backport patches
