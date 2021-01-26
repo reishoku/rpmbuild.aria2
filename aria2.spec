@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.35.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
@@ -79,6 +79,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Tue Jan 26 2021 Fedora Release Engineering <releng@fedoraproject.org> - 1.35.0-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_34_Mass_Rebuild
+
 * Wed Aug 26 2020 Jeff Law <law@redhat.com> - 1.35.0-4
 - No longer force C++11 mode
 
