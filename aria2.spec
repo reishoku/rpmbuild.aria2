@@ -2,7 +2,7 @@
 
 Name:           aria2
 Version:        1.37.0
-Release:        6%{?dist}
+Release:        1%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
 License:        GPLv2+ with exceptions
 URL:            http://aria2.github.io/
@@ -80,7 +80,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 
 %changelog
 * Mon Jan 08 2024 Neil Hanlon <neil@shrug.pw> - 1.37.0-1
-- update to 1.37
+- update to 1.37 (fedora#2249918)
 - change URL to aria2 organization as it was moved from the prior org
 
 * Sat Oct 28 2023 Neil Hanlon <neil@shrug.pw> - 1.36.0-6
