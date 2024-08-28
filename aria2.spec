@@ -2,9 +2,10 @@
 
 Name:           aria2
 Version:        1.37.0
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        High speed download utility with resuming and segmented downloading
-License:        GPLv2+ with exceptions
+# Automatically converted from old format: GPLv2+ with exceptions - review is highly recommended.
+License:        LicenseRef-Callaway-GPLv2+-with-exceptions
 URL:            http://aria2.github.io/
 Source0:        https://github.com/aria2/%{name}/releases/download/release-%{version}/%{name}-%{version}.tar.xz
 
@@ -79,6 +80,9 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/doc/%{name}
 %{_mandir}/*/man1/aria2c.1.gz
 
 %changelog
+* Wed Aug 28 2024 Miroslav Suchý <msuchy@redhat.com> - 1.37.0-5
+- convert license to SPDX
+
 * Wed Jul 17 2024 Fedora Release Engineering <releng@fedoraproject.org> - 1.37.0-4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
 
